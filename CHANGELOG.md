@@ -1,3 +1,9 @@
+## [1.0.1](https://github.com/iwpnd/maptiler-go/compare/v1.0.0...v1.0.1) (2026-01-05)
+
+### 🐛 Bug Fixes
+
+* 🐛 version command for go install ([1546a4b](https://github.com/iwpnd/maptiler-go/commit/1546a4b015a509f7717f3cbc416cf401d7310c26))
+
 ## 1.0.0 (2026-01-05)
 
 ### ✨ Features
