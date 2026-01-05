@@ -1,6 +1,6 @@
 module github.com/iwpnd/maptiler-go
 
-go 1.24.2
+go 1.25.5
 
 require (
 	github.com/iwpnd/rip v0.7.5
