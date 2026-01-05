@@ -1,0 +1,6 @@
+github.com/iwpnd/rip v0.7.5 h1:lGwplaxZYgkcdfzszTFRVuF2wTxMmQUazedAT5C8Osg=
+github.com/iwpnd/rip v0.7.5/go.mod h1:LYzzeCgh0xiDWZ/NHSI7wE8yQelRJUfiQ0nmR7qWmUA=
+github.com/segmentio/ksuid v1.0.4 h1:sBo2BdShXjmcugAMwjugoGUdUV0pcxY5mW4xKRn3v4c=
+github.com/segmentio/ksuid v1.0.4/go.mod h1:/XUiZBD3kVx5SmUOl55voK5yeAbBNNIed+2O73XgrPE=
+golang.org/x/sync v0.19.0 h1:vV+1eWNmZ5geRlYjzm2adRgW2/mcpevXNg50YZtPCE4=
+golang.org/x/sync v0.19.0/go.mod h1:9KTHXmSnoGruLpwFjVSX0lNNA75CykiMECbovNTZqGI=

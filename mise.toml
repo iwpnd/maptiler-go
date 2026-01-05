@@ -1,0 +1,6 @@
+[tools]
+golangci-lint = "2.4.0"
+"go:github.com/mfridman/tparse" = "latest"
+
+[settings]
+experimental = true

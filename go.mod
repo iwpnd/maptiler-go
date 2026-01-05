@@ -1,0 +1,9 @@
+module github.com/iwpnd/maptiler-go
+
+go 1.24.2
+
+require (
+	github.com/iwpnd/rip v0.7.5
+	github.com/segmentio/ksuid v1.0.4
+	golang.org/x/sync v0.19.0
+)
