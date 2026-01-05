@@ -19,10 +19,10 @@ import (
 )
 
 const (
-	serviceHost         = "https://service.maptiler.com/v1"
-	serviceIngestUpdate = "/datasets/:id/ingest"
-	serviceIngestCreate = "/datasets/ingest"
-	// serviceIngestGet     = "/datasets/ingest/:id"
+	serviceHost          = "https://service.maptiler.com/v1"
+	serviceIngestUpdate  = "/datasets/:id/ingest"
+	serviceIngestCreate  = "/datasets/ingest"
+	serviceIngestGet     = "/datasets/ingest/:id"
 	serviceIngestCancel  = "/datasets/ingest/:id/cancel"
 	serviceIngestProcess = "/datasets/ingest/:id/process"
 )
@@ -105,6 +105,33 @@ func (c *Client) Update(ctx context.Context, id, fp string) (IngestResponse, err
 		c.process,
 		id, fp,
 	)
+}
+
+// Cancel sends a cancellation request to the MapTiler service for the specified ingest/dataset ID.
+func (c *Client) Cancel(ctx context.Context, id string) (IngestResponse, error) {
+	return c.cancel(ctx, id)
+}
+
+// Get returns an active upload by ID.
+func (c *Client) Get(ctx context.Context, id string) (IngestGetResponse, error) {
+	req := c.h.NR().SetParams(rip.Params{"id": id})
+	resp, err := req.Execute(ctx, "GET", serviceIngestGet)
+	if err != nil {
+		return IngestGetResponse{}, fmt.Errorf("getting upload: %w", err)
+	}
+	defer resp.Close() //nolint:errcheck
+
+	if resp.IsError() {
+		return IngestGetResponse{}, fmt.Errorf("getting upload: %w", err)
+	}
+
+	var ir IngestGetResponse
+	uerr := json.Unmarshal(resp.Body(), &ir)
+	if uerr != nil {
+		return ir, fmt.Errorf("getting upload: %w", uerr)
+	}
+
+	return ir, err
 }
 
 // process handles the complete ingestion workflow: file validation, ingestion request,

@@ -12,15 +12,25 @@ type MapTilerError struct {
 }
 
 type IngestResponse struct {
-	ID         string        `json:"id"`
-	DocumentID string        `json:"document_id"`
-	State      string        `json:"state"`
-	Filename   string        `json:"Filename"`
-	Size       int64         `json:"size"`
-	Progress   float64       `json:"progress"`
-	Error      MapTilerError `json:"error"`
-	Upload     upload        `json:"upload"`
-	UploadURL  string        `json:"upload_url"`
+	ID         string          `json:"id"`
+	DocumentID string          `json:"document_id"`
+	State      string          `json:"state"`
+	Filename   string          `json:"filename"`
+	Size       int64           `json:"size"`
+	Progress   float64         `json:"progress"`
+	Errors     []MapTilerError `json:"errors"`
+	Upload     upload          `json:"upload"`
+	UploadURL  string          `json:"upload_url"`
+}
+
+type IngestGetResponse struct {
+	ID         string          `json:"id"`
+	DocumentID string          `json:"document_id"`
+	State      string          `json:"state"`
+	Filename   string          `json:"filename"`
+	Size       int64           `json:"size"`
+	Progress   float64         `json:"progress"`
+	Errors     []MapTilerError `json:"errors"`
 }
 
 type UploadResult struct {
@@ -29,9 +39,10 @@ type UploadResult struct {
 	Parts []uploadTaskResponse `json:"parts"`
 }
 
-func (m MapTilerError) String() string  { return toJSONString(m) }
-func (r IngestResponse) String() string { return toJSONString(r) }
-func (r UploadResult) String() string   { return toJSONString(r) }
+func (m MapTilerError) String() string     { return toJSONString(m) }
+func (r IngestResponse) String() string    { return toJSONString(r) }
+func (r IngestGetResponse) String() string { return toJSONString(r) }
+func (r UploadResult) String() string      { return toJSONString(r) }
 
 type uploadPart struct {
 	PartID int64  `json:"part_id"`
