@@ -30,7 +30,7 @@ jobs:
           install: true
           cache: true
           log_level: debug
-          github_token: ${{ secret.GITHUB_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: build
         run: make build
