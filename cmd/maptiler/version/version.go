@@ -1,7 +1,7 @@
 package version
 
 var (
-	BuildTime string
-	Version   string
-	GitSHA    string
+	BuildTime string = "unknown"
+	Version   string = "edge"
+	GitSHA    string = "unknown"
 )
