@@ -61,7 +61,7 @@ jobs:
           node-version: 20
 
       - name: Semantic Release
-        uses: iwpnd/semantic-release-action@latest
+        uses: iwpnd/semantic-release-action@v0.0.1
         with:
           dry_run: true
           extra_plugins: |
