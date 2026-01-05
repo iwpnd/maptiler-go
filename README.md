@@ -1,8 +1,5 @@
 # maptiler-go
 
-> [!WARNING]
-> Work in progress. Behavior and flags may change at any time.
-
 A small CLI for interacting with the [MapTiler Dataset Ingestion API](https://docs.maptiler.com/cloud/admin-api/tileset_ingest/).
 It wraps the MapTiler ingestion workflow (create, update, upload, finalize, cancel) into simple commands you can use from the terminal or scripts.
 
