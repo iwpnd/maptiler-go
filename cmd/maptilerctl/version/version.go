@@ -1,7 +1,15 @@
 package version
 
+import "runtime/debug"
+
 var (
-	BuildTime string = "unknown"
-	Version   string = "edge"
-	GitSHA    string = "unknown"
+	Version   = "edge"
+	GitSHA    = "unknown"
+	BuildTime = "unknown"
 )
+
+func init() {
+	if info, ok := debug.ReadBuildInfo(); ok && info.Main.Version != "(devel)" {
+		Version = info.Main.Version
+	}
+}
