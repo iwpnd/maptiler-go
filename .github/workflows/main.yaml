@@ -63,7 +63,7 @@ jobs:
       - name: Semantic Release
         uses: iwpnd/semantic-release-action@v0.0.1
         with:
-          dry_run: true
+          # dry_run: true
           extra_plugins: |
             @semantic-release/changelog
             @semantic-release/git
