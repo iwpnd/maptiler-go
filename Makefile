@@ -1,9 +1,9 @@
 VERSION ?= edge
 GITSHA    := $(shell git rev-parse --short HEAD)
 BUILDTIME := $(shell date +%FT%T%z)
-LDFLAGS   := -X github.com/ipwnd/maptiler-go/cmd/maptiler/version.Version=$(VERSION) \
-             -X github.com/iwpnd/maptiler-go/cmd/maptiler/version.GitSHA=$(GITSHA) \
-             -X github.com/iwpnd/maptiler-go/cmd/maptiler/version.BuildTime=$(BUILDTIME)
+LDFLAGS   := -X github.com/ipwnd/maptiler-go/cmd/maptilerctl/version.Version=$(VERSION) \
+             -X github.com/iwpnd/maptiler-go/cmd/maptilerctl/version.GitSHA=$(GITSHA) \
+             -X github.com/iwpnd/maptiler-go/cmd/maptilerctl/version.BuildTime=$(BUILDTIME)
 
 GOARCH ?= amd64
 CGO_ENABLED ?= 0
@@ -13,7 +13,7 @@ build:
 	@echo "building"
 	@echo "VERSION=$(VERSION) GITSHA=$(GITSHA) BUILDTIME=$(BUILDTIME)"
 	@echo "LDFLAGS=$(LDFLAGS)"
-	GOARCH=$(GOARCH) CGO_ENABLED=$(CGO_ENABLED) go build -ldflags '$(LDFLAGS)' -o ./bin/maptiler ./cmd/maptiler
+	GOARCH=$(GOARCH) CGO_ENABLED=$(CGO_ENABLED) go build -ldflags '$(LDFLAGS)' -o ./bin/maptilerctl ./cmd/maptilerctl
 
 .PHONY: install
 install:

@@ -12,7 +12,7 @@ import (
 	"github.com/urfave/cli/v3"
 
 	"github.com/iwpnd/maptiler-go"
-	"github.com/iwpnd/maptiler-go/cmd/maptiler/version"
+	"github.com/iwpnd/maptiler-go/cmd/maptilerctl/version"
 )
 
 func main() {
@@ -155,7 +155,6 @@ func main() {
 
 					id := cmd.String("id")
 
-					// Requires an exported Cancel method on your client.
 					ir, err := c.Cancel(cctx, id)
 					if err != nil {
 						return err
@@ -189,10 +188,9 @@ func newClientWithContext(parent context.Context, cmd *cli.Command) (*maptiler.C
 
 	if timeout > 0 {
 		tctx, cancel := context.WithTimeout(sigCtx, timeout)
-		// Combine: when tctx is canceled, we also stop signal notifications.
+		// combine here, when tctx is canceled, we also stop signal notifications.
 		return c, tctx, func() { cancel(); stop() }, nil
 	}
 
-	// No explicit timeout.
 	return c, sigCtx, stop, nil
 }
