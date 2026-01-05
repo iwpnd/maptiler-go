@@ -3,7 +3,7 @@
 > [!WARNING]
 > Work in progress. Behavior and flags may change at any time.
 
-A small CLI for interacting with the **MapTiler Dataset Ingestion API**.
+A small CLI for interacting with the [MapTiler Dataset Ingestion API](https://docs.maptiler.com/cloud/admin-api/tileset_ingest/).
 It wraps the MapTiler ingestion workflow (create, update, upload, finalize, cancel) into simple commands you can use from the terminal or scripts.
 
 The CLI is built on top of the `maptiler` Go client and handles multipart uploads, retries, and cancellation for you.
@@ -20,7 +20,7 @@ The CLI is built on top of the `maptiler` Go client and handles multipart upload
 ## Installation
 
 ```bash
-go install github.com/iwpnd/cmd/maptiler@latest
+go install github.com/iwpnd/cmd/maptilerctl@latest
 ```
 
 Or build from source:
@@ -33,7 +33,7 @@ make build
 
 ## Configuration
 
-The CLI requires a MapTiler API token.
+The CLI requires a MapTiler API token that you can create in your [MapTiler accoutn](https://cloud.maptiler.com/account/credentials/).
 
 You can provide it via:
 
