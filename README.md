@@ -7,12 +7,12 @@ The CLI is built on top of the `maptiler` Go client and handles multipart upload
 
 ## Features
 
-* Create new dataset ingestions from local files
-* Update existing datasets with new data
-* Cancel in-flight ingestions
-* Fetch ingestion status by ID
-* Token-based authentication via flags or environment variables
-* Context-aware cancellation and configurable timeouts
+* create new dataset ingestions from local files
+* update existing datasets with new data
+* cancel in-flight ingestions
+* fetch ingestion status by ID
+* token-based authentication via flags or environment variables
+* context-aware cancellation and configurable timeouts
 
 ## Installation
 
@@ -56,65 +56,19 @@ maptilerctl [global options] [command [command options]]
 --timeout duration  Request timeout (0 = no explicit timeout) (default: 10m)
 ```
 
-## Commands
-
-### create
-
-Create a new dataset ingestion from a local file.
-
 ```bash
+# create: Create a new dataset ingestion from a local file.
 maptilerctl create --file ./tiles.mbtiles
-```
 
-### update
-
-Update an existing dataset by dataset ID.
-
-```bash
+# update: Update an existing dataset by dataset ID.
 maptilerctl update --id <dataset-id> --file ./tiles.mbtiles
-```
 
-### cancel
+# get: Fetch the current state of an ingestion by ID.
+maptilerctl get --id <ingest-id>
 
-Cancel an in-flight ingestion by ingest ID.
-
-```bash
+# cancel: Cancel an in-flight ingestion by ingest ID.
 maptilerctl cancel --id <ingest-id>
 ```
-
-### get
-
-Fetch the current state of an ingestion by ID.
-
-```bash
-maptilerctl get --id <ingest-id>
-```
-
-### version
-
-Print the CLI version.
-
-```bash
-maptilerctl version
-```
-
-## Output
-
-All commands print the raw JSON response returned by the MapTiler API:
-
-```json
-{
-  "id": "019b8ef3-dcec-7ac1-b25b-31afcf8e5b76",
-  "document_id": "019b8ef4-0263-74b8-b98f-b06dd64a5dbc",
-  "state": "completed",
-  "filename": "zwickau.mbtiles",
-  "size": 28262400,
-  "progress": 100,
-  "errors": null
-}
-```
-
-This makes the CLI easy to compose with tools like `jq`.
 
 ## Signals & Cancellation
 
